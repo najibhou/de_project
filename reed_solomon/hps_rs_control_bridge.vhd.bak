@@ -1,0 +1,30 @@
+
+
+entity hps_rs_control_bridge is
+port(
+  rst_n_i : in std_ulogic;
+  clk_i   : in std_ulogic;
+  --WISHBONE HPS INTF
+  --RS_CONTROL INTF
+	hps_mem_stb_o           : out  std_ulogic;
+	hps_mem_write_o         : out  std_ulogic;
+	hps_mem_wdata_o         : out  std_ulogic_vector(31 downto 0);
+	hps_mem_addr_o          : out  std_ulogic_vector(7 downto 0);
+	hps_mem_rdata_i         : in   std_ulogic_vector(31 downto 0);
+	hps_rs_exec_o	          : out  std_ulogic;
+	hps_rs_en_decn_o        : out  std_ulogic;
+	hps_rs_addr_o	          : out  std_ulogic_vector(7 downto 0)
+);
+end entity hps_rs_control_bridge;
+
+
+architecture rtl of hps_rs_control_bridge is
+begin
+  hps_mem_stb_o <= '0';
+  hps_mem_write_o<='0';
+  hps_mem_wdata_o<=(others=>'0');
+  hps_mem_addr_o<=(others=>'0');
+  hps_rs_exec_o<='0';
+  hps_rs_en_decn_o<='0';
+  hps_rs_addr_o<=(others=>'0');
+end architecture rtl;

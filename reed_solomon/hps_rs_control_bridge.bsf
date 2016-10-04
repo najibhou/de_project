@@ -1,0 +1,100 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 16 16 320 192)
+	(text "hps_rs_control_bridge" (rect 5 0 94 12)(font "Arial" ))
+	(text "inst" (rect 8 160 20 172)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "rst_n_i" (rect 0 0 28 12)(font "Arial" ))
+		(text "rst_n_i" (rect 21 27 49 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 1))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "clk_i" (rect 0 0 17 12)(font "Arial" ))
+		(text "clk_i" (rect 21 43 38 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 1))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "hps_mem_rdata_i[31..0]" (rect 0 0 97 12)(font "Arial" ))
+		(text "hps_mem_rdata_i[31..0]" (rect 21 59 118 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
+	)
+	(port
+		(pt 304 32)
+		(output)
+		(text "hps_mem_stb_o" (rect 0 0 69 12)(font "Arial" ))
+		(text "hps_mem_stb_o" (rect 214 27 283 39)(font "Arial" ))
+		(line (pt 304 32)(pt 288 32)(line_width 1))
+	)
+	(port
+		(pt 304 48)
+		(output)
+		(text "hps_mem_write_o" (rect 0 0 75 12)(font "Arial" ))
+		(text "hps_mem_write_o" (rect 208 43 283 55)(font "Arial" ))
+		(line (pt 304 48)(pt 288 48)(line_width 1))
+	)
+	(port
+		(pt 304 64)
+		(output)
+		(text "hps_mem_wdata_o[31..0]" (rect 0 0 103 12)(font "Arial" ))
+		(text "hps_mem_wdata_o[31..0]" (rect 180 59 283 71)(font "Arial" ))
+		(line (pt 304 64)(pt 288 64)(line_width 3))
+	)
+	(port
+		(pt 304 80)
+		(output)
+		(text "hps_mem_addr_o[7..0]" (rect 0 0 95 12)(font "Arial" ))
+		(text "hps_mem_addr_o[7..0]" (rect 188 75 283 87)(font "Arial" ))
+		(line (pt 304 80)(pt 288 80)(line_width 3))
+	)
+	(port
+		(pt 304 96)
+		(output)
+		(text "hps_rs_exec_o" (rect 0 0 63 12)(font "Arial" ))
+		(text "hps_rs_exec_o" (rect 220 91 283 103)(font "Arial" ))
+		(line (pt 304 96)(pt 288 96)(line_width 1))
+	)
+	(port
+		(pt 304 112)
+		(output)
+		(text "hps_rs_en_decn_o" (rect 0 0 79 12)(font "Arial" ))
+		(text "hps_rs_en_decn_o" (rect 204 107 283 119)(font "Arial" ))
+		(line (pt 304 112)(pt 288 112)(line_width 1))
+	)
+	(port
+		(pt 304 128)
+		(output)
+		(text "hps_rs_addr_o[7..0]" (rect 0 0 82 12)(font "Arial" ))
+		(text "hps_rs_addr_o[7..0]" (rect 201 123 283 135)(font "Arial" ))
+		(line (pt 304 128)(pt 288 128)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 288 160)(line_width 1))
+	)
+)

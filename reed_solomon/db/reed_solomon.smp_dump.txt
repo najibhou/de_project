@@ -1,0 +1,20 @@
+
+State Machine - |reed_solomon_top|rs_16_14_control:rs_control_inst|crt_state_s
+Name crt_state_s.STATE_RS_DECODE_STORE crt_state_s.STATE_RS_DECODE_EXEC crt_state_s.STATE_RS_DECODE_READ crt_state_s.STATE_RS_ENCODE_STORE crt_state_s.STATE_RS_ENCODE_EXEC crt_state_s.STATE_RS_ENCODE_READ crt_state_s.STATE_RS_MEM_WRITE crt_state_s.STATE_RS_MEM_READ crt_state_s.STATE_RS_INIT 
+crt_state_s.STATE_RS_INIT 0 0 0 0 0 0 0 0 0 
+crt_state_s.STATE_RS_MEM_READ 0 0 0 0 0 0 0 1 1 
+crt_state_s.STATE_RS_MEM_WRITE 0 0 0 0 0 0 1 0 1 
+crt_state_s.STATE_RS_ENCODE_READ 0 0 0 0 0 1 0 0 1 
+crt_state_s.STATE_RS_ENCODE_EXEC 0 0 0 0 1 0 0 0 1 
+crt_state_s.STATE_RS_ENCODE_STORE 0 0 0 1 0 0 0 0 1 
+crt_state_s.STATE_RS_DECODE_READ 0 0 1 0 0 0 0 0 1 
+crt_state_s.STATE_RS_DECODE_EXEC 0 1 0 0 0 0 0 0 1 
+crt_state_s.STATE_RS_DECODE_STORE 1 0 0 0 0 0 0 0 1 
+
+State Machine - |reed_solomon_top|rs_16_14_control:rs_control_inst|rs_16_14_decoder:i_rs_decoder|CRT_STATE
+Name CRT_STATE.S_TRANSMIT CRT_STATE.S_WAIT_ERR_LOCATION CRT_STATE.S_WAIT_ERR_VALUE CRT_STATE.S_WAIT_SYNDROMES CRT_STATE.S_INIT 
+CRT_STATE.S_INIT 0 0 0 0 0 
+CRT_STATE.S_WAIT_SYNDROMES 0 0 0 1 1 
+CRT_STATE.S_WAIT_ERR_VALUE 0 0 1 0 1 
+CRT_STATE.S_WAIT_ERR_LOCATION 0 1 0 0 1 
+CRT_STATE.S_TRANSMIT 1 0 0 0 1 

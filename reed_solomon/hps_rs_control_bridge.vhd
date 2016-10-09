@@ -123,10 +123,12 @@ begin
         when AVALON_READ => 
             if hps_mem_rdy_i='1' then
               readdatavalid_s   <= '1';
+              hps_mem_stb_s     <= '0';
               readdata_s        <= hps_mem_rdata_i;
               crt_state_s       <= AVALON_IDLE;
             else
               readdatavalid_s   <= '0';
+              hps_mem_stb_s     <= '1';
               readdata_s        <= (others=>'0');
               crt_state_s       <= AVALON_READ;
             end if;
@@ -156,8 +158,8 @@ begin
   hps_rs_exec_o   <= hps_rs_exec_s;
   hps_rs_en_decn_o<= hps_rs_en_decn_s;
   hps_rs_addr_o   <= hps_rs_addr_s;
-  readdata_o      <= readdata_s;
-  readdatavalid_o <= readdatavalid_s;
+  readdata_o      <= hps_mem_rdata_i;
+  readdatavalid_o <= hps_mem_rdy_i;
   waitrequest_o   <= waitrequest_s;
   waitrequest_s   <= '0';--FIXME YODDOS
   

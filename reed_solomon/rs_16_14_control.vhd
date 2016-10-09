@@ -191,7 +191,6 @@ begin
             ram_data_s        <= (others=>'0');
             ram_wr_en_s       <= '0';
             ram_rd_en_s       <= '1';
-            hps_mem_rdata_s   <= (others=>'0');
             ram_address_s     <= hps_rs_addr_i;
             rs_base_address   <= hps_rs_addr_i;
 						crt_state_s       <= STATE_RS_DECODE_READ;
@@ -199,7 +198,6 @@ begin
             ram_data_s        <= (others=>'0');
             ram_wr_en_s       <= '0';
             ram_rd_en_s       <= '1';
-            hps_mem_rdata_s   <= (others=>'0');
             ram_address_s     <= hps_rs_addr_i;
             rs_base_address   <= hps_rs_addr_i;
 						crt_state_s       <= STATE_RS_ENCODE_READ;
@@ -208,7 +206,6 @@ begin
             ram_address_s   <= hps_mem_addr_i;
             ram_wr_en_s     <= '1';
             ram_rd_en_s     <= '0';
-            hps_mem_rdata_s <= ram_data_i;
             rs_base_address <=(others=>'0');
 						crt_state_s     <= STATE_RS_MEM_WRITE;
 					elsif hps_mem_stb_i='1' and hps_mem_write_i='0' then
@@ -216,7 +213,6 @@ begin
             ram_address_s   <= hps_mem_addr_i;
             ram_wr_en_s     <= '0';
             ram_rd_en_s     <= '1';
-            hps_mem_rdata_s <= (others=>'0');
             rs_base_address <=(others=>'0');
 						crt_state_s     <= STATE_RS_MEM_READ;
 					else
@@ -224,7 +220,6 @@ begin
             ram_address_s   <= (others=>'0');
             ram_wr_en_s     <= '0';
             ram_rd_en_s     <= '0';
-            hps_mem_rdata_s <= (others=>'0');
             rs_base_address <=(others=>'0');
 						crt_state_s     <= STATE_RS_INIT;
 					end if;
@@ -236,17 +231,30 @@ begin
           dec_data_s        <= (others=>'0');
           mem_word_count_s  <= 0;
           hps_mem_rdy_s     <= '0';
+          hps_mem_rdata_s   <= (others=>'0');
           
 				when STATE_RS_MEM_READ =>
+          if byte_count_s=0 then
+            byte_count_s      <= 1;
+            hps_mem_rdata_s   <= (others=>'0');
+            hps_mem_rdy_s     <= '0';
+            crt_state_s       <= STATE_RS_MEM_READ;
+          elsif byte_count_s=1 then
+            byte_count_s      <= 2;
+            hps_mem_rdy_s     <= '1';
+            hps_mem_rdata_s   <= ram_data_i;
+            crt_state_s       <= STATE_RS_MEM_READ;
+          else
+            byte_count_s      <= 0;
+            hps_mem_rdy_s     <= '0';
+            hps_mem_rdata_s   <= (others=>'0');
+            crt_state_s       <= STATE_RS_INIT;
+          end if;
           ram_data_s        <= (others=>'0');
           ram_address_s     <= (others=>'0');
           ram_wr_en_s       <= '0';
           ram_rd_en_s       <= '0';
-          hps_mem_rdata_s   <= (others=>'0');
-          hps_mem_rdy_s     <= '1';
-          crt_state_s       <= STATE_RS_INIT;
           -------------------------------------
-          byte_count_s      <= 0;
           enc_valid_s       <= '0';
           enc_data_s        <= (others=>'0');
           dec_valid_s       <= '0';
@@ -295,7 +303,7 @@ begin
           dec_valid_s       <= '0';
           dec_data_s        <= (others=>'0');
           hps_mem_rdy_s     <= '0';
-          
+          hps_mem_rdata_s   <= (others=>'0');
 				when STATE_RS_ENCODE_EXEC=>
           if byte_count_s<14 and enc_ready_s='1' then
             --ENCODER accepts current data
@@ -378,6 +386,7 @@ begin
           dec_valid_s       <= '0';
           dec_data_s        <= (others=>'0');
           hps_mem_rdy_s     <= '0';
+          hps_mem_rdata_s   <= (others=>'0');
           
         when STATE_RS_DECODE_READ=>
           if mem_word_count_s<4 then
@@ -406,6 +415,7 @@ begin
           dec_valid_s       <= '0';
           dec_data_s        <= (others=>'0');
           hps_mem_rdy_s     <= '0';
+          hps_mem_rdata_s   <= (others=>'0');
           
 				when STATE_RS_DECODE_EXEC=>
           if byte_count_s<16 and dec_ready_s='1' then
@@ -492,6 +502,7 @@ begin
           dec_valid_s       <= '0';
           dec_data_s        <= (others=>'0');
           hps_mem_rdy_s     <= '0';
+          hps_mem_rdata_s   <= (others=>'0');
             
 				when others=>
 					crt_state_s       <= STATE_RS_INIT;
@@ -603,17 +614,18 @@ begin
     end if;--clk
   end process CLK_DELAY_P;
   
-	ram_data_o 		<= ram_data_s;
-	ram_wr_en_o 	<= ram_wr_en_s;
-	ram_rd_en_o 	<= ram_rd_en_s;
-	ram_address_o <= ram_address_s;
+	ram_data_o 		  <= ram_data_s;
+	ram_wr_en_o 	  <= ram_wr_en_s;
+	ram_rd_en_o 	  <= ram_rd_en_s;
+	ram_address_o   <= ram_address_s;
   
-  encode_done_o <= enc_finish_delay_s;
-  decode_done_o <= dec_finish_delay_s;
+  encode_done_o   <= enc_finish_delay_s;
+  decode_done_o   <= dec_finish_delay_s;
   
-  dec_cerr_o    <= dec_cerr_s;
-  dec_ncerr_o   <= dec_ncerr_s;
-  hps_mem_rdy_o <= hps_mem_rdy_s;
+  dec_cerr_o      <= dec_cerr_s;
+  dec_ncerr_o     <= dec_ncerr_s;
+  hps_mem_rdy_o   <= hps_mem_rdy_s;
+  hps_mem_rdata_o <= hps_mem_rdata_s;
 	
 	--debug_o(7 downto 6) <=  "00" when crt_state_s = STATE_RS_INIT or crt_state_s = STATE_RS_MEM_READ else
   --                        "01" when crt_state_s = STATE_RS_MEM_WRITE else		

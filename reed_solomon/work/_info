@@ -9,34 +9,34 @@ z2
 cModel Technology
 dD:/yann/altera_lite/16
 Ehps_rs_control_bridge
-Z0 w1475512743
+Z0 w1476016312
 Z1 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z2 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
-Z3 dD:/yann/fpga/reed_solomon
-Z4 8D:/yann/fpga/reed_solomon/hps_rs_control_bridge.vhd
-Z5 FD:/yann/fpga/reed_solomon/hps_rs_control_bridge.vhd
+Z3 dD:/yann/fpga/git_reed_solomon/reed_solomon
+Z4 8D:/yann/fpga/git_reed_solomon/reed_solomon/hps_rs_control_bridge.vhd
+Z5 FD:/yann/fpga/git_reed_solomon/reed_solomon/hps_rs_control_bridge.vhd
 l0
 L7
 Vz_1H2PelaPVSIP1Sn0eBS0
 !s100 >^5QO[@<FcH0obF0PE3RU2
 Z6 OV;C;10.4d;61
 32
-Z7 !s110 1475512850
+Z7 !s110 1476016592
 !i10b 1
-Z8 !s108 1475512850.000000
-Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/yann/fpga/reed_solomon/hps_rs_control_bridge.vhd|
-Z10 !s107 D:/yann/fpga/reed_solomon/hps_rs_control_bridge.vhd|
+Z8 !s108 1476016592.000000
+Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/yann/fpga/git_reed_solomon/reed_solomon/hps_rs_control_bridge.vhd|
+Z10 !s107 D:/yann/fpga/git_reed_solomon/reed_solomon/hps_rs_control_bridge.vhd|
 !i113 1
 Z11 o-work work -2002 -explicit
 Z12 tExplicit 1
 Artl
 R1
 R2
-Z13 DEx4 work 21 hps_rs_control_bridge 0 22 z_1H2PelaPVSIP1Sn0eBS0
+DEx4 work 21 hps_rs_control_bridge 0 22 z_1H2PelaPVSIP1Sn0eBS0
 l63
 L37
-Z14 V1D@ngDaE]b1@<0lc5Z;ed1
-Z15 !s100 IG^YL^1Dd<XJTU0=8YZLO1
+VJDS<L@N_UlR?Y70kCV?Nm1
+!s100 G21j1f9Jom=P[I:EciL3D2
 R6
 32
 R7
@@ -48,120 +48,120 @@ R10
 R11
 R12
 Ers_16_14_control
-Z16 w1475512846
-Z17 DPx4 work 12 rs_16_14_pkg 0 22 H7l@>nVSOimF6l@6PTa@B2
-Z18 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z13 w1476016444
+Z14 DPx4 work 12 rs_16_14_pkg 0 22 H7l@>nVSOimF6l@6PTa@B2
+Z15 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
 R1
 R2
 R3
-Z19 8D:/yann/fpga/reed_solomon/rs_16_14_control.vhd
-Z20 FD:/yann/fpga/reed_solomon/rs_16_14_control.vhd
+Z16 8D:/yann/fpga/git_reed_solomon/reed_solomon/rs_16_14_control.vhd
+Z17 FD:/yann/fpga/git_reed_solomon/reed_solomon/rs_16_14_control.vhd
 l0
 L13
 VC;M;SkCkUj6FRe7oU:?Km1
 !s100 BK`l]ih1@eL8n?H4l3V^43
 R6
 32
-Z21 !s110 1475512849
+R7
 !i10b 1
-Z22 !s108 1475512849.000000
-Z23 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/yann/fpga/reed_solomon/rs_16_14_control.vhd|
-Z24 !s107 D:/yann/fpga/reed_solomon/rs_16_14_control.vhd|
+R8
+Z18 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/yann/fpga/git_reed_solomon/reed_solomon/rs_16_14_control.vhd|
+Z19 !s107 D:/yann/fpga/git_reed_solomon/reed_solomon/rs_16_14_control.vhd|
 !i113 1
 R11
 R12
 Artl
-R17
-R18
+R14
+R15
 R1
 R2
 DEx4 work 16 rs_16_14_control 0 22 C;M;SkCkUj6FRe7oU:?Km1
 l133
 L47
-VK2GPV1ce6gnNV;ZOhIRbV1
-!s100 ;e4l74No8O3=[L^4V1;6U1
+Vo_9a47B8_cWN;PY]=5IM@3
+!s100 SSfiWSGVAeFX9d6OHT;0e0
 R6
 32
-R21
+R7
 !i10b 1
-R22
-R23
-R24
+R8
+R18
+R19
 !i113 1
 R11
 R12
 vrs_16_14_control_tb_top
-Z25 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+Z20 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
 R7
 !i10b 1
-!s100 Zb72^4CEOVadWiU61lg702
-I;dliemkaP7g0nG4[jXa[51
+!s100 WJ<FmGkNKPfT[^=eOiXUW2
+ILbeb;PFMUYDLB2OC[3L690
 VDg1SIo80bB@j0V0VzS_@n1
 !s105 rs_16_14_control_tb_top_sv_unit
 S1
 R3
-Z26 w1475512557
-Z27 8D:/yann/fpga/reed_solomon/rs_16_14_control_tb_top.sv
-Z28 FD:/yann/fpga/reed_solomon/rs_16_14_control_tb_top.sv
+Z21 w1476016590
+Z22 8D:/yann/fpga/git_reed_solomon/reed_solomon/rs_16_14_control_tb_top.sv
+Z23 FD:/yann/fpga/git_reed_solomon/reed_solomon/rs_16_14_control_tb_top.sv
 L0 5
-Z29 OV;L;10.4d;61
+Z24 OV;L;10.4d;61
 r1
 !s85 0
 31
 R8
-Z30 !s107 D:/yann/fpga/reed_solomon/rs_16_14_control_tb_top.sv|
-Z31 !s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/yann/fpga/reed_solomon/rs_16_14_control_tb_top.sv|
+Z25 !s107 D:/yann/fpga/git_reed_solomon/reed_solomon/rs_16_14_control_tb_top.sv|
+Z26 !s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/yann/fpga/git_reed_solomon/reed_solomon/rs_16_14_control_tb_top.sv|
 !i113 1
-Z32 o-work work -sv
+Z27 o-work work -sv
 Xrs_16_14_control_tb_top_sv_unit
-R25
+R20
 R7
 !i10b 1
-!s100 5nf;Jml7eoTEgm`3@Ljgf1
-Ij4g3?SlaB5BWT5J@SH4?J1
-Vj4g3?SlaB5BWT5J@SH4?J1
+!s100 _EogE;lilibL57ALSh68P3
+IfOmnmY=KgjcYkl;d[bGoE3
+VfOmnmY=KgjcYkl;d[bGoE3
 !i103 1
 S1
 R3
-R26
-R27
-R28
-L0 362
-R29
+R21
+R22
+R23
+L0 364
+R24
 r1
 !s85 0
 31
 R8
-R30
-R31
+R25
+R26
 !i113 1
-R32
+R27
 Ers_16_14_decoder
-Z33 w1474830087
-R17
-R18
+Z28 w1476014250
+R14
+R15
 R1
 R2
 R3
-Z34 8D:/yann/fpga/reed_solomon/rs_16_14_decoder.vhd
-Z35 FD:/yann/fpga/reed_solomon/rs_16_14_decoder.vhd
+Z29 8D:/yann/fpga/git_reed_solomon/reed_solomon/rs_16_14_decoder.vhd
+Z30 FD:/yann/fpga/git_reed_solomon/reed_solomon/rs_16_14_decoder.vhd
 l0
 L25
 VY4H4Jef25eFGL]AFcb;nc0
 !s100 Z^P8@G_>>b@VzllXMCfW?2
 R6
 32
-R21
+Z31 !s110 1476016593
 !i10b 1
-R22
-Z36 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/yann/fpga/reed_solomon/rs_16_14_decoder.vhd|
-Z37 !s107 D:/yann/fpga/reed_solomon/rs_16_14_decoder.vhd|
+R8
+Z32 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/yann/fpga/git_reed_solomon/reed_solomon/rs_16_14_decoder.vhd|
+Z33 !s107 D:/yann/fpga/git_reed_solomon/reed_solomon/rs_16_14_decoder.vhd|
 !i113 1
 R11
 R12
 Aodd_19052011
-R17
-R18
+R14
+R15
 R1
 R2
 DEx4 work 16 rs_16_14_decoder 0 22 Y4H4Jef25eFGL]AFcb;nc0
@@ -171,21 +171,21 @@ V`:7YUTPB?oJeYF0dM9J?R2
 !s100 GC<k<oajL4Gc<LJiS4QZX3
 R6
 32
-R21
+R31
 !i10b 1
-R22
-R36
-R37
+R8
+R32
+R33
 !i113 1
 R11
 R12
 Prs_16_14_pkg
 R1
 R2
-Z38 w1474830057
+R28
 R3
-Z39 8D:/yann/fpga/reed_solomon/rs_16_14_pkg.vhd
-Z40 FD:/yann/fpga/reed_solomon/rs_16_14_pkg.vhd
+Z34 8D:/yann/fpga/git_reed_solomon/reed_solomon/rs_16_14_pkg.vhd
+Z35 FD:/yann/fpga/git_reed_solomon/reed_solomon/rs_16_14_pkg.vhd
 l0
 L16
 VH7l@>nVSOimF6l@6PTa@B2
@@ -193,16 +193,16 @@ VH7l@>nVSOimF6l@6PTa@B2
 R6
 32
 b1
-R21
+R31
 !i10b 1
-R22
-Z41 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/yann/fpga/reed_solomon/rs_16_14_pkg.vhd|
-Z42 !s107 D:/yann/fpga/reed_solomon/rs_16_14_pkg.vhd|
+Z36 !s108 1476016593.000000
+Z37 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/yann/fpga/git_reed_solomon/reed_solomon/rs_16_14_pkg.vhd|
+Z38 !s107 D:/yann/fpga/git_reed_solomon/reed_solomon/rs_16_14_pkg.vhd|
 !i113 1
 R11
 R12
 Bbody
-R17
+R14
 R1
 R2
 l0
@@ -211,40 +211,40 @@ VZjP9GEK8`NQJbcgUZ;jJ83
 !s100 kmL4=caWhARZP`J_o^h:40
 R6
 32
-R21
+R31
 !i10b 1
-R22
-R41
-R42
+R36
+R37
+R38
 !i113 1
 R11
 R12
 Ers_berlekamps_16_14
-Z43 w1474830144
-R17
-R18
+R28
+R14
+R15
 R1
 R2
 R3
-Z44 8D:/yann/fpga/reed_solomon/rs_berlekamps_16_14.vhd
-Z45 FD:/yann/fpga/reed_solomon/rs_berlekamps_16_14.vhd
+Z39 8D:/yann/fpga/git_reed_solomon/reed_solomon/rs_berlekamps_16_14.vhd
+Z40 FD:/yann/fpga/git_reed_solomon/reed_solomon/rs_berlekamps_16_14.vhd
 l0
 L26
 VLj`7XhAT3SL?XjHC7h<2Z0
 !s100 dk4Z0`RmE@]TjPG4ZME<=0
 R6
 32
-R21
+R31
 !i10b 1
-R22
-Z46 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/yann/fpga/reed_solomon/rs_berlekamps_16_14.vhd|
-Z47 !s107 D:/yann/fpga/reed_solomon/rs_berlekamps_16_14.vhd|
+R36
+Z41 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/yann/fpga/git_reed_solomon/reed_solomon/rs_berlekamps_16_14.vhd|
+Z42 !s107 D:/yann/fpga/git_reed_solomon/reed_solomon/rs_berlekamps_16_14.vhd|
 !i113 1
 R11
 R12
 Aodd_19052011
-R17
-R18
+R14
+R15
 R1
 R2
 DEx4 work 19 rs_berlekamps_16_14 0 22 Lj`7XhAT3SL?XjHC7h<2Z0
@@ -254,40 +254,40 @@ VDC7>KVL5J<9_gJF?`Pd`^2
 !s100 5l<RPgUA8cb]D6i@ICbZ]3
 R6
 32
-R21
+R31
 !i10b 1
-R22
-R46
-R47
+R36
+R41
+R42
 !i113 1
 R11
 R12
 Ers_chien_search_16_14
-Z48 w1474830141
-R17
-R18
+R28
+R14
+R15
 R1
 R2
 R3
-Z49 8D:/yann/fpga/reed_solomon/rs_chien_search_16_14.vhd
-Z50 FD:/yann/fpga/reed_solomon/rs_chien_search_16_14.vhd
+Z43 8D:/yann/fpga/git_reed_solomon/reed_solomon/rs_chien_search_16_14.vhd
+Z44 FD:/yann/fpga/git_reed_solomon/reed_solomon/rs_chien_search_16_14.vhd
 l0
 L26
 VZSId>ZW2EWR5z0<9imMcc3
 !s100 _?GUCH8ELKfCT>Kj6PSD20
 R6
 32
-R21
+R31
 !i10b 1
-R22
-Z51 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/yann/fpga/reed_solomon/rs_chien_search_16_14.vhd|
-Z52 !s107 D:/yann/fpga/reed_solomon/rs_chien_search_16_14.vhd|
+R36
+Z45 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/yann/fpga/git_reed_solomon/reed_solomon/rs_chien_search_16_14.vhd|
+Z46 !s107 D:/yann/fpga/git_reed_solomon/reed_solomon/rs_chien_search_16_14.vhd|
 !i113 1
 R11
 R12
 Aodd_19052011
-R17
-R18
+R14
+R15
 R1
 R2
 DEx4 work 21 rs_chien_search_16_14 0 22 ZSId>ZW2EWR5z0<9imMcc3
@@ -297,38 +297,38 @@ V8_97BW0zGOAV@10fFP:?30
 !s100 8e<S<UEXBW9GSz42ZD;Nm1
 R6
 32
-R21
+R31
 !i10b 1
-R22
-R51
-R52
+R36
+R45
+R46
 !i113 1
 R11
 R12
 Ers_encoder_16_14
-Z53 w1474830079
-R17
+R28
+R14
 R1
 R2
 R3
-Z54 8D:/yann/fpga/reed_solomon/rs_16_14_encoder.vhd
-Z55 FD:/yann/fpga/reed_solomon/rs_16_14_encoder.vhd
+Z47 8D:/yann/fpga/git_reed_solomon/reed_solomon/rs_16_14_encoder.vhd
+Z48 FD:/yann/fpga/git_reed_solomon/reed_solomon/rs_16_14_encoder.vhd
 l0
 L18
 VBNWC2Tz6k3mQ3AiI`eLF_3
 !s100 09>C8il;0kK=aa;9d]<D91
 R6
 32
-R21
+R31
 !i10b 1
-R22
-Z56 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/yann/fpga/reed_solomon/rs_16_14_encoder.vhd|
-Z57 !s107 D:/yann/fpga/reed_solomon/rs_16_14_encoder.vhd|
+R36
+Z49 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/yann/fpga/git_reed_solomon/reed_solomon/rs_16_14_encoder.vhd|
+Z50 !s107 D:/yann/fpga/git_reed_solomon/reed_solomon/rs_16_14_encoder.vhd|
 !i113 1
 R11
 R12
 Aodd_19052011
-R17
+R14
 R1
 R2
 DEx4 work 16 rs_encoder_16_14 0 22 BNWC2Tz6k3mQ3AiI`eLF_3
@@ -338,40 +338,40 @@ Vbg<2GX3I@l?fL<c5boSCa1
 !s100 Seo@kgHmEIinPIQ^8S?I]3
 R6
 32
-R21
+R31
 !i10b 1
-R22
-R56
-R57
+R36
+R49
+R50
 !i113 1
 R11
 R12
 Ers_forney_16_14
-Z58 w1474830137
-R17
-R18
+R28
+R14
+R15
 R1
 R2
 R3
-Z59 8D:/yann/fpga/reed_solomon/rs_forney_16_14.vhd
-Z60 FD:/yann/fpga/reed_solomon/rs_forney_16_14.vhd
+Z51 8D:/yann/fpga/git_reed_solomon/reed_solomon/rs_forney_16_14.vhd
+Z52 FD:/yann/fpga/git_reed_solomon/reed_solomon/rs_forney_16_14.vhd
 l0
 L19
 VW21IgJU6SPJB8jMTh4X4`3
 !s100 h=cgTghQNl3]<0Z4J?M?O1
 R6
 32
-R7
+R31
 !i10b 1
-R22
-Z61 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/yann/fpga/reed_solomon/rs_forney_16_14.vhd|
-Z62 !s107 D:/yann/fpga/reed_solomon/rs_forney_16_14.vhd|
+R36
+Z53 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/yann/fpga/git_reed_solomon/reed_solomon/rs_forney_16_14.vhd|
+Z54 !s107 D:/yann/fpga/git_reed_solomon/reed_solomon/rs_forney_16_14.vhd|
 !i113 1
 R11
 R12
 Aodd_20052011
-R17
-R18
+R14
+R15
 R1
 R2
 DEx4 work 15 rs_forney_16_14 0 22 W21IgJU6SPJB8jMTh4X4`3
@@ -381,38 +381,81 @@ VRSS:P>c[QzgH8E4DgnaJN3
 !s100 oMeg5czoF^cKO6OzD1_@`0
 R6
 32
-R7
+R31
 !i10b 1
-R22
-R61
-R62
+R36
+R53
+R54
+!i113 1
+R11
+R12
+Ers_hps_bridge
+R28
+R14
+R15
+R1
+R2
+R3
+Z55 8D:/yann/fpga/git_reed_solomon/reed_solomon/rs_hps_bridge.vhd
+Z56 FD:/yann/fpga/git_reed_solomon/reed_solomon/rs_hps_bridge.vhd
+l0
+L12
+Vdd1QO@V>oeLWf_@SndHhB2
+!s100 gbZfE_VRVk75<LYTOeLVm0
+R6
+32
+R31
+!i10b 1
+R36
+Z57 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/yann/fpga/git_reed_solomon/reed_solomon/rs_hps_bridge.vhd|
+Z58 !s107 D:/yann/fpga/git_reed_solomon/reed_solomon/rs_hps_bridge.vhd|
+!i113 1
+R11
+R12
+Artl
+R14
+R15
+R1
+R2
+Z59 DEx4 work 13 rs_hps_bridge 0 22 dd1QO@V>oeLWf_@SndHhB2
+l38
+L36
+Z60 V7o9BT?I8`<Rf;d@n:fai^0
+Z61 !s100 RY<0CB>z3E28T9n<d63jB0
+R6
+32
+R31
+!i10b 1
+R36
+R57
+R58
 !i113 1
 R11
 R12
 Ers_syndromes_16_14
-Z63 w1474830134
-R17
+R28
+R14
 R1
 R2
 R3
-Z64 8D:/yann/fpga/reed_solomon/rs_syndromes_16_14.vhd
-Z65 FD:/yann/fpga/reed_solomon/rs_syndromes_16_14.vhd
+Z62 8D:/yann/fpga/git_reed_solomon/reed_solomon/rs_syndromes_16_14.vhd
+Z63 FD:/yann/fpga/git_reed_solomon/reed_solomon/rs_syndromes_16_14.vhd
 l0
 L24
 V^I94J:AG53`U_XGHz4G`e3
 !s100 LcY]aWlY7DCaio>nYo4_n2
 R6
 32
-R21
+R7
 !i10b 1
-Z66 !s108 1475512848.000000
-Z67 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/yann/fpga/reed_solomon/rs_syndromes_16_14.vhd|
-Z68 !s107 D:/yann/fpga/reed_solomon/rs_syndromes_16_14.vhd|
+R8
+Z64 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/yann/fpga/git_reed_solomon/reed_solomon/rs_syndromes_16_14.vhd|
+Z65 !s107 D:/yann/fpga/git_reed_solomon/reed_solomon/rs_syndromes_16_14.vhd|
 !i113 1
 R11
 R12
 Aodd_19052011
-R17
+R14
 R1
 R2
 DEx4 work 18 rs_syndromes_16_14 0 22 ^I94J:AG53`U_XGHz4G`e3
@@ -422,11 +465,11 @@ Vh8M`=L>d46c889a1a:NF91
 !s100 M2o5Kkj0doJ>V1YmdNHd42
 R6
 32
-R21
+R7
 !i10b 1
-R66
-R67
-R68
+R8
+R64
+R65
 !i113 1
 R11
 R12

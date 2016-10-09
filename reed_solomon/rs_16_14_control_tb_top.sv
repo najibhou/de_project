@@ -248,13 +248,15 @@ logic         tb_hps_mem_rdy;
     avalon_master_write(address+2,rs_block[63:32]);
     avalon_master_write(address+3,rs_block[31:0]);
     avalon_master_read(address,data);
-    if(data!=rs_block[127:96])$error("[]:: Invalid data written in memory. Read %h, expected %h",data,rs_block[127:96]);
+    if(data!=rs_block[127:96])$error("[LOAD_RS_BLOCK]:: Invalid data written in memory @%h. Read %h, expected %h",address,data,rs_block[127:96]);
     avalon_master_read(address+1,data);
-    if(data!=rs_block[127:96])$error("[]:: Invalid data written in memory. Read %h, expected %h",data,rs_block[95:64]);
+    if(data!=rs_block[95:64])$error("[LOAD_RS_BLOCK]:: Invalid data written in memory. Read %h, expected %h",address+1,data,rs_block[95:64]);
+    insert_idle_cycles($urandom_range(0,4));
     avalon_master_read(address+2,data);
-    if(data!=rs_block[127:96])$error("[]:: Invalid data written in memory. Read %h, expected %h",data,rs_block[63:32]);
+    if(data!=rs_block[63:32])$error("[LOAD_RS_BLOCK]:: Invalid data written in memory. Read %h, expected %h",address+2,data,rs_block[63:32]);
+    insert_idle_cycles($urandom_range(0,4));
     avalon_master_read(address+3,data);
-    if(data!=rs_block[127:96])$error("[]:: Invalid data written in memory. Read %h, expected %h",data,rs_block[31:0]);
+    if(data!=rs_block[31:0])$error("[LOAD_RS_BLOCK]:: Invalid data written in memory. Read %h, expected %h",address+3,data,rs_block[31:0]);
   endtask : load_rs_block
   
   task insert_idle_cycles(int nb_cycles);

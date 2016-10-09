@@ -247,6 +247,7 @@ logic         tb_hps_mem_rdy;
     avalon_master_write(address+1,rs_block[95:64]);
     avalon_master_write(address+2,rs_block[63:32]);
     avalon_master_write(address+3,rs_block[31:0]);
+    insert_idle_cycles($urandom_range(0,4));
     avalon_master_read(address,data);
     if(data!=rs_block[127:96])$error("[LOAD_RS_BLOCK]:: Invalid data written in memory @%h. Read %h, expected %h",address,data,rs_block[127:96]);
     avalon_master_read(address+1,data);
@@ -260,7 +261,7 @@ logic         tb_hps_mem_rdy;
   endtask : load_rs_block
   
   task insert_idle_cycles(int nb_cycles);
-    repeat(nb_cycles)@(posedge tb_clk);
+    repeat(nb_cycles)avalon_master_idle();
   endtask : insert_idle_cycles
   
   
@@ -283,6 +284,14 @@ logic         tb_hps_mem_rdy;
     end//forever
   endtask :  model_ram
   
+  task avalon_master_idle();
+    @(posedge tb_clk);
+    tb_avalon_chipselect  <= 0;
+    tb_avalon_write       <= 0;
+    tb_avalon_read        <= 0;
+    tb_avalon_address     <= 0;
+    tb_avalon_writedata   <= 0;
+  endtask : avalon_master_idle
   
   task avalon_master_write(bit [7:0] address, int data);
     wait(tb_rst_n);
@@ -295,13 +304,7 @@ logic         tb_hps_mem_rdy;
     tb_avalon_address[10:8] <= "000";//WRITE INTO ONCHIP MEM
     tb_avalon_address[31:11]<= 0;
     tb_avalon_writedata     <= data;
-    @(posedge tb_clk);
     wait(tb_avalon_waitrequest==0);
-    tb_avalon_chipselect  <= 0;
-    tb_avalon_write       <= 0;
-    tb_avalon_address     <= 0;
-    tb_avalon_writedata   <= 0;
-    tb_avalon_read        <= 0;
   endtask : avalon_master_write
   
   task avalon_master_read(input bit [7:0] address, output int data);
@@ -312,21 +315,23 @@ logic         tb_hps_mem_rdy;
     tb_avalon_read          <= 1;
     tb_avalon_address[7:0]  <= address;
     tb_avalon_address[31:8] <= "000";//WRITE INTO ONCHIP MEM
-    @(posedge tb_clk);
-    wait(tb_avalon_readdatavalid==1);
+    while(tb_avalon_readdatavalid==0)begin
+      @(posedge tb_clk);
+    end
+    //@(posedge tb_clk);
     tb_avalon_chipselect  <= 0;
     tb_avalon_write       <= 0;
     tb_avalon_address     <= 0;
     tb_avalon_writedata   <= 0;
     data                  = tb_avalon_readdata;
-    $display("[AVALON_MASTER_WRITE]:: Reading data @%h is %h",address,data);
+    $display("[AVALON_MASTER_READ]:: Reading data @%h is %h",address,data);
   endtask : avalon_master_read
   
   
   task avalon_master_encode(bit [7:0] address);
     wait(tb_rst_n);
     @(posedge tb_clk);
-    $display("[AVALON_MASTER_WRITE]:: START Encoding data from %h",address);
+    $display("[AVALON_MASTER_ENCODE]:: START Encoding data from %h",address);
     tb_avalon_chipselect    <= 1;
     tb_avalon_write         <= 1;
     tb_avalon_read          <= 0;
@@ -345,7 +350,7 @@ logic         tb_hps_mem_rdy;
   task avalon_master_decode(bit [7:0] address);
     wait(tb_rst_n);
     @(posedge tb_clk);
-    $display("[AVALON_MASTER_WRITE]:: START Decoding data from %h",address);
+    $display("[AVALON_MASTER_DECODE]:: START Decoding data from %h",address);
     tb_avalon_chipselect    <= 1;
     tb_avalon_write         <= 1;
     tb_avalon_read          <= 0;

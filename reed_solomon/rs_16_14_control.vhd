@@ -48,7 +48,6 @@ architecture rtl of rs_16_14_control is
 type rs_control_state_t is (
 	STATE_RS_INIT,
 	STATE_RS_MEM_READ,
-	STATE_RS_MEM_WRITE,
 	STATE_RS_ENCODE_READ,
 	STATE_RS_ENCODE_EXEC,
 	STATE_RS_ENCODE_STORE,
@@ -100,7 +99,6 @@ signal ram_rd_en_s        : std_ulogic;
 signal ram_address_s      : std_ulogic_vector(7 downto 0);
 
 signal rs_base_address    : std_ulogic_vector(7 downto 0);
-signal hps_mem_rdata_s    : std_ulogic_vector(31 downto 0);
 signal hps_mem_rdy_s      : std_ulogic;
 signal rs_data_original_s : std_ulogic_vector(127 downto 0);
 signal rs_enc_result_s    : std_ulogic_vector(127 downto 0);
@@ -174,7 +172,6 @@ begin
       ram_wr_en_s         <='0';
       ram_rd_en_s         <='0';
       ram_address_s       <=(others=>'0');
-      hps_mem_rdata_s     <=(others=>'0');
       byte_count_s        <= 0;
       enc_valid_s         <= '0';
       enc_data_s          <= (others=>'0');
@@ -201,14 +198,14 @@ begin
             ram_address_s     <= hps_rs_addr_i;
             rs_base_address   <= hps_rs_addr_i;
 						crt_state_s       <= STATE_RS_ENCODE_READ;
-					elsif hps_mem_stb_i='1' and hps_mem_write_i='1' then
+					elsif hps_mem_stb_i='1' and hps_mem_write_i='1' and hps_mem_rdy_s='0' then
             ram_data_s      <= hps_mem_wdata_i;
             ram_address_s   <= hps_mem_addr_i;
             ram_wr_en_s     <= '1';
             ram_rd_en_s     <= '0';
             rs_base_address <=(others=>'0');
-						crt_state_s     <= STATE_RS_MEM_WRITE;
-					elsif hps_mem_stb_i='1' and hps_mem_write_i='0' then
+						crt_state_s     <= STATE_RS_INIT;
+					elsif hps_mem_stb_i='1' and hps_mem_write_i='0' and hps_mem_rdy_s='0' then
             ram_data_s      <= (others=>'0');
             ram_address_s   <= hps_mem_addr_i;
             ram_wr_en_s     <= '0';
@@ -231,25 +228,10 @@ begin
           dec_data_s        <= (others=>'0');
           mem_word_count_s  <= 0;
           hps_mem_rdy_s     <= '0';
-          hps_mem_rdata_s   <= (others=>'0');
           
 				when STATE_RS_MEM_READ =>
-          if byte_count_s=0 then
-            byte_count_s      <= 1;
-            hps_mem_rdata_s   <= (others=>'0');
-            hps_mem_rdy_s     <= '0';
-            crt_state_s       <= STATE_RS_MEM_READ;
-          elsif byte_count_s=1 then
-            byte_count_s      <= 2;
-            hps_mem_rdy_s     <= '1';
-            hps_mem_rdata_s   <= ram_data_i;
-            crt_state_s       <= STATE_RS_MEM_READ;
-          else
-            byte_count_s      <= 0;
-            hps_mem_rdy_s     <= '0';
-            hps_mem_rdata_s   <= (others=>'0');
-            crt_state_s       <= STATE_RS_INIT;
-          end if;
+          crt_state_s       <= STATE_RS_INIT;
+          hps_mem_rdy_s     <= '1';
           ram_data_s        <= (others=>'0');
           ram_address_s     <= (others=>'0');
           ram_wr_en_s       <= '0';
@@ -259,20 +241,6 @@ begin
           enc_data_s        <= (others=>'0');
           dec_valid_s       <= '0';
           dec_data_s        <= (others=>'0');
-          rs_base_address   <= (others=>'0');
-          
-				when STATE_RS_MEM_WRITE =>
-          ram_data_s        <= (others=>'0');
-          ram_address_s     <= (others=>'0');
-          ram_wr_en_s       <= '0';
-          ram_rd_en_s       <= '0';
-          hps_mem_rdata_s   <= (others=>'0');
-          hps_mem_rdy_s     <= '0';
-          crt_state_s       <= STATE_RS_INIT;
-          -------------------------------------
-          byte_count_s      <= 0;
-          enc_valid_s       <= '0';
-          enc_data_s        <= (others=>'0');
           rs_base_address   <= (others=>'0');
           
 				when STATE_RS_ENCODE_READ=>
@@ -303,7 +271,6 @@ begin
           dec_valid_s       <= '0';
           dec_data_s        <= (others=>'0');
           hps_mem_rdy_s     <= '0';
-          hps_mem_rdata_s   <= (others=>'0');
 				when STATE_RS_ENCODE_EXEC=>
           if byte_count_s<14 and enc_ready_s='1' then
             --ENCODER accepts current data
@@ -356,7 +323,6 @@ begin
           end if;
           -------------------------------------
           ram_address_s     <= rs_base_address;
-          hps_mem_rdata_s   <= (others=>'0');
           mem_word_count_s  <= 1;
           hps_mem_rdy_s     <= '0';
           
@@ -386,7 +352,6 @@ begin
           dec_valid_s       <= '0';
           dec_data_s        <= (others=>'0');
           hps_mem_rdy_s     <= '0';
-          hps_mem_rdata_s   <= (others=>'0');
           
         when STATE_RS_DECODE_READ=>
           if mem_word_count_s<4 then
@@ -415,7 +380,6 @@ begin
           dec_valid_s       <= '0';
           dec_data_s        <= (others=>'0');
           hps_mem_rdy_s     <= '0';
-          hps_mem_rdata_s   <= (others=>'0');
           
 				when STATE_RS_DECODE_EXEC=>
           if byte_count_s<16 and dec_ready_s='1' then
@@ -473,7 +437,6 @@ begin
           enc_valid_s       <= '0';
           enc_data_s        <= (others=>'0');
           ram_address_s     <= rs_base_address;
-          hps_mem_rdata_s   <= (others=>'0');
           mem_word_count_s  <= 1;
           hps_mem_rdy_s     <= '0';
         when STATE_RS_DECODE_STORE =>
@@ -502,7 +465,6 @@ begin
           dec_valid_s       <= '0';
           dec_data_s        <= (others=>'0');
           hps_mem_rdy_s     <= '0';
-          hps_mem_rdata_s   <= (others=>'0');
             
 				when others=>
 					crt_state_s       <= STATE_RS_INIT;
@@ -625,7 +587,7 @@ begin
   dec_cerr_o      <= dec_cerr_s;
   dec_ncerr_o     <= dec_ncerr_s;
   hps_mem_rdy_o   <= hps_mem_rdy_s;
-  hps_mem_rdata_o <= hps_mem_rdata_s;
+  hps_mem_rdata_o <= ram_data_i;
 	
 	--debug_o(7 downto 6) <=  "00" when crt_state_s = STATE_RS_INIT or crt_state_s = STATE_RS_MEM_READ else
   --                        "01" when crt_state_s = STATE_RS_MEM_WRITE else		
@@ -635,7 +597,7 @@ begin
 	--debug_o(4)          <= dec_finish_s;
   --debug_o(3 downto 0) <= (others=>'0');
   debug_o <= "111" when crt_state_s = STATE_RS_INIT else
-             "001" when crt_state_s = STATE_RS_MEM_READ or crt_state_s=STATE_RS_MEM_WRITE else
+             "001" when crt_state_s = STATE_RS_MEM_READ else
              "010" when crt_state_s = STATE_RS_ENCODE_READ or crt_state_s = STATE_RS_ENCODE_EXEC or crt_state_s=STATE_RS_ENCODE_STORE else
              "011" when crt_state_s = STATE_RS_DECODE_READ or crt_state_s = STATE_RS_DECODE_EXEC or crt_state_s=STATE_RS_DECODE_STORE else
              "000";

@@ -119,7 +119,7 @@ logic         tb_hps_mem_rdy;
     tb_rst_n <= 0;
     #20us;
     tb_rst_n <= 1;
-  end
+  end//initial
   
   initial begin
     tb_clk <= 0;
@@ -129,45 +129,47 @@ logic         tb_hps_mem_rdy;
       tb_clk <= 1;
       #10ns;
     end
-  end
+  end//initial
   
   initial begin
     int crt_address;
+    avalon_master_idle();
     #10us;
     load_ram();
     crt_address=0;
-    #100us;
+    #50us;
     perform_encoding(8'h0);//2 last bytes will be used for the codes
-    #200us;
+    #50us;
     crt_address+=4;
     perform_encoding(8'h4);//2 last bytes will be used for the codes
-    #200us;
+    #50us;
     crt_address+=4;
     perform_encoding(8'h8);//2 last bytes will be used for the codes
-    #200us;
+    #50us;
     crt_address+=4;
     for(int rs_data_table_index=0;rs_data_table_index<16;rs_data_table_index++)begin
       insert_idle_cycles($urandom_range(0,256));
       perform_encoding(crt_address);
       crt_address+=4;
     end//for
-    #200us;
+    #100us;
+    
     crt_address=0;
     perform_decoding(8'h0);//2 last bytes will be used for the codes
-    #200us;
+    #20us;
     crt_address+=4;
     perform_decoding(8'h4);//2 last bytes will be used for the codes
-    #200us;
+    #20us;
     crt_address+=4;
     perform_decoding(8'h8);//2 last bytes will be used for the codes
-    #200us;
+    #20us;
     crt_address+=4;
     for(int rs_data_table_index=0;rs_data_table_index<16;rs_data_table_index++)begin
       insert_idle_cycles($urandom_range(0,256));
       perform_decoding(crt_address);
       crt_address+=4;
     end//for
-  end
+  end//initial
   
   task perform_encoding(bit [7:0] ram_address);
     wait(tb_rst_n==1);
@@ -321,6 +323,7 @@ logic         tb_hps_mem_rdy;
     //@(posedge tb_clk);
     tb_avalon_chipselect  <= 0;
     tb_avalon_write       <= 0;
+    tb_avalon_read        <= 0;
     tb_avalon_address     <= 0;
     tb_avalon_writedata   <= 0;
     data                  = tb_avalon_readdata;
